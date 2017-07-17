@@ -13,11 +13,14 @@ apply plugin: 'kotlin2js'
 compileKotlin2Js {
     kotlinOptions.moduleKind = "commonjs"
     kotlinOptions.sourceMap = true
+    kotlinOptions.metaInfo = true
+    kotlinOptions.main = "noCall"
 }
 
 compileTestKotlin2Js {
     kotlinOptions.moduleKind = "commonjs"
     kotlinOptions.sourceMap = true
+    kotlinOptions.main = "noCall"
 }
 
 apply plugin: 'maven'
