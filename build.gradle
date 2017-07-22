@@ -15,6 +15,7 @@ compileKotlin2Js {
     kotlinOptions.sourceMap = true
     kotlinOptions.metaInfo = true
     kotlinOptions.main = "noCall"
+    kotlinOptions.outputFile = "$project.buildDir.path/classes/main/${project.name}/${project.name}.js"
 }
 
 compileTestKotlin2Js {

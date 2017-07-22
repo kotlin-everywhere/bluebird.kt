@@ -1,6 +1,6 @@
 package com.github.kotlin.everywhere
 
-import com.github.kotlin.everywhere.bluebird.Bluebird
+import com.github.kotlin.everywhere.ktbluebird.Bluebird
 import org.junit.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue

@@ -1,4 +1,4 @@
-package com.github.kotlin.everywhere.bluebird
+package com.github.kotlin.everywhere.ktbluebird
 
 
 @JsModule("bluebird")

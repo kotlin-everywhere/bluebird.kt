@@ -1,1 +1,1 @@
-require('../build/classes/test/bluebird.kt_test');
+require('../build/classes/test/ktbluebird_test');
