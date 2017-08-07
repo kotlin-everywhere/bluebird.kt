@@ -1,1 +1,1 @@
-require('../build/classes/test/ktbluebird_test');
+require('../build/classes/test/keduct-bluebird-test');

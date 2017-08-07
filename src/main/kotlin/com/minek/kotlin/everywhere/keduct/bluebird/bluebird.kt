@@ -1,4 +1,4 @@
-package com.github.kotlin.everywhere.ktbluebird
+package com.minek.kotlin.everywhere.keduct.bluebird
 
 
 @JsModule("bluebird")
