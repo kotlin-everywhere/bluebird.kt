@@ -28,11 +28,10 @@ external private object QUnit {
 fun <T> Bluebird<T>.assertAsync(): Bluebird<T> {
     return catch { e ->
         @Suppress("UnsafeCastFromDynamic")
-        QUnit.config.current.pushFailure(e.message, e.stack)
+        QUnit.config.current.pushFailure(e.asDynamic().message ?: "", e.asDynamic().stack)
         @Suppress("UnsafeCastFromDynamic")
         throw e
-    }
-            .finally(QUnit.config.current.assert.async())
+    }.finally(QUnit.config.current.assert.async())
 }
 
 
@@ -100,5 +99,14 @@ class TestBluebird {
             resolve(10)
         }
         Bluebird.resolve(promise).then { assertEquals(10, 10) }.assertAsync()
+    }
+
+    @Test
+    fun testCatch() {
+        Bluebird.resolve(1)
+                .then { throw IllegalStateException() }
+                .catch { "10" }
+                .then { assertEquals("10", it) }
+                .assertAsync()
     }
 }

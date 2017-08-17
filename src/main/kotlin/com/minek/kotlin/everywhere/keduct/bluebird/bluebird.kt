@@ -10,7 +10,7 @@ external class Bluebird<out T>(body: (resolve: (T) -> Unit, reject: (e: Exceptio
     fun <U : Bluebird<V>, V : Any> andThen(body: (T) -> U): Bluebird<V>
 
 
-    fun catch(body: (e: dynamic) -> Unit): Bluebird<T>
+    override fun <U> catch(onRejected: (e: Throwable) -> U): Bluebird<U>
     fun finally(body: () -> Unit): Bluebird<T>
 
     companion object {
