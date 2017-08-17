@@ -2,6 +2,7 @@ package com.minek.kotlin.everywhere
 
 import com.minek.kotlin.everywhere.keduct.bluebird.Bluebird
 import org.junit.Test
+import kotlin.js.Promise
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
@@ -86,5 +87,18 @@ class TestBluebird {
                     assertEquals("84", it)
                 }
                 .assertAsync()
+    }
+
+    @Test
+    fun testResolveValue() {
+        Bluebird.resolve(10).then { assertEquals(10, 10) }.assertAsync()
+    }
+
+    @Test
+    fun testResolvePromise() {
+        val promise = Promise { resolve: (Int) -> Unit, _ ->
+            resolve(10)
+        }
+        Bluebird.resolve(promise).then { assertEquals(10, 10) }.assertAsync()
     }
 }
