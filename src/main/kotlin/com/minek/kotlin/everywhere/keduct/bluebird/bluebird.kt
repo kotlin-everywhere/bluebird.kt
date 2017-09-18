@@ -18,3 +18,7 @@ external class Bluebird<out T>(body: (resolve: (T) -> Unit, reject: (e: Exceptio
         fun <U : Any> resolve(promise: Promise<U>): Bluebird<U>
     }
 }
+
+fun <T : Any> Bluebird.Companion.of(body: () -> T): Bluebird<T> {
+    return resolve(Unit).then { body() }
+}

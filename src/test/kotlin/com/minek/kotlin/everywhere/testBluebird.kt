@@ -1,6 +1,7 @@
 package com.minek.kotlin.everywhere
 
 import com.minek.kotlin.everywhere.keduct.bluebird.Bluebird
+import com.minek.kotlin.everywhere.keduct.bluebird.of
 import org.junit.Test
 import kotlin.js.Promise
 import kotlin.test.assertEquals
@@ -91,6 +92,11 @@ class TestBluebird {
     @Test
     fun testResolveValue() {
         Bluebird.resolve(10).then { assertEquals(10, 10) }.assertAsync()
+    }
+
+    @Test
+    fun testOf() {
+        Bluebird.of { 42 }.then { assertEquals(it, 42) }.assertAsync()
     }
 
     @Test
